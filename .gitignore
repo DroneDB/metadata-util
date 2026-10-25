@@ -1,0 +1,14 @@
+# Build trees
+build/
+build-*/
+cmake-build-*/
+out/
+CMakeCache.txt
+CMakeFiles/
+*.o
+*.obj
+
+# IDE
+.vs/
+.vscode/
+.idea/
