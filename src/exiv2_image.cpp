@@ -32,8 +32,12 @@ fs::path toAbsolute(const std::string& bytes) {
 }
 
 #ifdef _WIN32
-bool isAscii(const std::string& text) {
-    return std::all_of(text.begin(), text.end(), [](unsigned char c) { return c < 0x80; });
+// Whether Exiv2 can open `path` by name: it converts the name with the ANSI code page, which
+// holds every ASCII character but not necessarily anything else. The test is on the path that
+// is opened, so a relative ASCII name under a non-ASCII working directory counts as non-ASCII.
+bool isAscii(const fs::path& path) {
+    const std::wstring& name = path.native();
+    return std::all_of(name.begin(), name.end(), [](wchar_t c) { return c < 0x80; });
 }
 #endif
 
@@ -46,7 +50,7 @@ Exiv2::Image::UniquePtr openImage(const std::string& path) {
     if (fs::is_directory(absolute, ec))
         throw OpenError(path + " is a directory");
 #ifdef _WIN32
-    if (!isAscii(path)) {
+    if (!isAscii(absolute)) {
         std::ifstream in(absolute, std::ios::binary);
         if (!in)
             throw OpenError("Cannot open " + path);

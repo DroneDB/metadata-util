@@ -196,14 +196,17 @@ of a failure are always plain.
 
 ## 8. Paths
 
-A path is taken as bytes by the file system (UTF-8 on Windows, converted to UTF-16 by the
-program). A relative path is resolved against the working directory of the server, never against
-anything in the request. Whatever the form of the path, the server opens that file and nothing
-else: names Exiv2 would treat as a URL or as standard input are only ever files. The server opens
-a file for `read` and `write` requests only, and changes a file for `write` requests only.
+A path is taken as bytes by the file system (UTF-8 on Windows, converted to UTF-16 by the program).
+A relative path is resolved against the working directory of the server, never against anything in
+the request. Clients should send absolute paths: the working directory of the server is whatever it
+was started with, which a client does not necessarily control. Whatever the form of the path, the
+server opens that file and nothing else: names Exiv2 would treat as a URL or as standard input are
+only ever files. The server opens a file for `read` and `write` requests only, and changes a file
+for `write` requests only.
 
-On Windows a path with non-ASCII characters is read into memory and opened from there, since Exiv2
-opens files with the ANSI code page; a `write` writes the result back to the same path.
+On Windows a path with non-ASCII characters, judged on the absolute path that is opened (a relative
+ASCII path under a non-ASCII working directory counts), is read into memory and opened from there,
+since Exiv2 opens files with the ANSI code page; a `write` writes the result back to the same path.
 
 ## 9. Limits
 
