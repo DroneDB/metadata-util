@@ -1,6 +1,6 @@
-# ddb-exif
+# metadata-util
 
-`ddb-exif` reads and writes image metadata (Exif and XMP) with [Exiv2](https://exiv2.org) for
+`metadata-util` reads and writes image metadata (Exif and XMP) with [Exiv2](https://exiv2.org) for
 [DroneDB](https://github.com/DroneDB/DroneDB). DroneDB runs it as a separate process and talks to
 it over a line-based JSON protocol, so the Exiv2 code (GPL-2.0-or-later) stays in this program and
 does not become part of DroneDB's libraries.
@@ -8,16 +8,16 @@ does not become part of DroneDB's libraries.
 It also works on its own, like `exiv2 -pa`:
 
 ```
-$ ddb-exif dump DJI_0042.JPG
+$ metadata-util dump DJI_0042.JPG
 {"id":0,"ok":true,"width":5472,"height":3648,"exif":[{"k":"Exif.Image.Make", ...
 ```
 
 ## Usage
 
 ```
-ddb-exif --version          # ddb-exif <version> (Exiv2 <version>) protocol <major>.<minor>
-ddb-exif --serve            # answer the requests of PROTOCOL.md on stdin/stdout
-ddb-exif dump <file>...     # one read response line per file; exit 1 if any file failed
+metadata-util --version          # metadata-util <version> (Exiv2 <version>) protocol <major>.<minor>
+metadata-util --serve            # answer the requests of PROTOCOL.md on stdin/stdout
+metadata-util dump <file>...     # one read response line per file; exit 1 if any file failed
 ```
 
 The protocol is described in [PROTOCOL.md](PROTOCOL.md).
@@ -32,7 +32,7 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=<vcpkg>/sc
 cmake --build build
 ```
 
-`-DDDB_EXIF_VERSION=<version>` sets the version `--version` prints (`unknown` by default). When the
+`-DMETADATA_UTIL_VERSION=<version>` sets the version `--version` prints (`unknown` by default). When the
 directory is added with `add_subdirectory` from the DroneDB build, DroneDB's `APP_VERSION` is used
 and the executable goes where the parent's `CMAKE_RUNTIME_OUTPUT_DIRECTORY` says.
 

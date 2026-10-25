@@ -4,7 +4,7 @@
 #include <charconv>
 #include <cmath>
 
-namespace ddbexif {
+namespace metadatautil {
 
 void JsonWriter::beforeValue() {
     if (afterKey_) {
@@ -154,4 +154,4 @@ void JsonWriter::appendQuoted(std::string_view utf8) {
     out_ += '"';
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

@@ -21,14 +21,14 @@ int wmain(int argc, wchar_t** argv) {
 
     std::vector<std::string> args;
     for (int i = 1; i < argc; ++i)
-        args.push_back(ddbexif::utf8::fromWide(argv[i]));
-    return ddbexif::runCli(args);
+        args.push_back(metadatautil::utf8::fromWide(argv[i]));
+    return metadatautil::runCli(args);
 }
 
 #else
 
 int main(int argc, char** argv) {
-    return ddbexif::runCli(std::vector<std::string>(argv + 1, argv + argc));
+    return metadatautil::runCli(std::vector<std::string>(argv + 1, argv + argc));
 }
 
 #endif

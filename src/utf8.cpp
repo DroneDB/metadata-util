@@ -8,7 +8,7 @@
 #include <windows.h>
 #endif
 
-namespace ddbexif::utf8 {
+namespace metadatautil::utf8 {
 
 namespace {
 
@@ -97,4 +97,4 @@ std::string fromWide(std::wstring_view wide) {
 }
 #endif
 
-}  // namespace ddbexif::utf8
+}  // namespace metadatautil::utf8

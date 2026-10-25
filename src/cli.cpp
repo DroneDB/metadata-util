@@ -11,19 +11,19 @@
 #include "service.h"
 #include "version_info.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
 int printUsage(std::ostream& out, int status) {
-    out << "Usage: ddb-exif --version\n"
-           "       ddb-exif --serve\n"
-           "       ddb-exif dump <file>...\n";
+    out << "Usage: metadata-util --version\n"
+           "       metadata-util --serve\n"
+           "       metadata-util dump <file>...\n";
     return status;
 }
 
 int printVersion() {
-    std::cout << "ddb-exif " << DDB_EXIF_VERSION_STRING << " (Exiv2 " << Exiv2::versionString() << ") protocol "
+    std::cout << "metadata-util " << METADATA_UTIL_VERSION_STRING << " (Exiv2 " << Exiv2::versionString() << ") protocol "
               << ProtocolMajor << '.' << ProtocolMinor << std::endl;
     return std::cout ? 0 : 1;
 }
@@ -72,4 +72,4 @@ int runCli(const std::vector<std::string>& args) {
     return printUsage(std::cerr, 2);
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

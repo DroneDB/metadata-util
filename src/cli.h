@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace ddbexif {
+namespace metadatautil {
 
 // The program: `args` are the command line arguments after the program name, as UTF-8 (bytes on
 // POSIX). Returns the exit status.
@@ -14,4 +14,4 @@ namespace ddbexif {
 //   dump <file>...    prints the read response of each file, one line each
 int runCli(const std::vector<std::string>& args);
 
-}  // namespace ddbexif
+}  // namespace metadatautil

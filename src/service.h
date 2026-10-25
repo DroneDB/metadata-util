@@ -6,7 +6,7 @@
 
 #include "protocol.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 // One response line, without the line feed
 struct Response {
@@ -31,4 +31,4 @@ private:
     std::string writeImage(const Request& request) const;
 };
 
-}  // namespace ddbexif
+}  // namespace metadatautil

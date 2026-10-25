@@ -10,7 +10,7 @@
 
 namespace fs = std::filesystem;
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -92,4 +92,4 @@ bool isOpenFailure(const Exiv2::Error& error) {
            error.code() == Exiv2::ErrorCode::kerFileOpenFailed;
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

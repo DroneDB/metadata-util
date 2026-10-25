@@ -7,7 +7,7 @@
 #include <utility>
 #include <vector>
 
-namespace ddbexif {
+namespace metadatautil {
 
 // Builds one JSON document in insertion order. Responses are written by hand instead of through
 // a JSON value tree: a read response holds thousands of numbers, and member order and float
@@ -45,4 +45,4 @@ private:
     bool afterKey_ = false;
 };
 
-}  // namespace ddbexif
+}  // namespace metadatautil

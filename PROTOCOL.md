@@ -1,4 +1,4 @@
-# ddb-exif protocol
+# metadata-util protocol
 
 **Protocol version 1.0**
 
@@ -8,14 +8,14 @@ This document is released under CC0 1.0 Universal (public domain dedication,
 <https://creativecommons.org/publicdomain/zero/1.0/>). Anyone may implement either side of the
 protocol, under any licence, without asking.
 
-The protocol is the whole interface between `ddb-exif` and the programs that use it. It carries
+The protocol is the whole interface between `metadata-util` and the programs that use it. It carries
 plain data only: file paths, tag keys, Exiv2 type names, tag values and status. It carries no
 structures, pointers, handles, file descriptors, shared memory names, numeric Exiv2 enumerations,
 offsets or byte orders, and no request depends on an earlier one.
 
 ## 1. Transport
 
-`ddb-exif --serve` reads requests from standard input and writes responses to standard output.
+`metadata-util --serve` reads requests from standard input and writes responses to standard output.
 
 * A request or a response is one JSON object (RFC 8259), encoded as UTF-8, on one line that ends
   with a line feed (`\n`). A carriage return before the line feed is allowed in a request and
@@ -36,9 +36,9 @@ offsets or byte orders, and no request depends on an earlier one.
 
 | Command | Behaviour |
 | --- | --- |
-| `ddb-exif --version` | Prints one line, `ddb-exif <version> (Exiv2 <exiv2 version>) protocol <major>.<minor>`, and exits 0. `<version>` is the version of the DroneDB build that contains the program (`unknown` for a standalone build). Nothing else is initialised. |
-| `ddb-exif --serve` | Serves the requests of this document. File paths are never taken from the command line in this mode. |
-| `ddb-exif dump <file>...` | Prints the `read` response of each file, one line per file, in argument order, then exits 0 if all of them were read and 1 if any failed. The `id` of each response is the 0-based position of the file among the arguments. A file that fails still prints an `ok: false` line. On Windows the arguments are read as UTF-16 and converted to UTF-8. |
+| `metadata-util --version` | Prints one line, `metadata-util <version> (Exiv2 <exiv2 version>) protocol <major>.<minor>`, and exits 0. `<version>` is the version of the DroneDB build that contains the program (`unknown` for a standalone build). Nothing else is initialised. |
+| `metadata-util --serve` | Serves the requests of this document. File paths are never taken from the command line in this mode. |
+| `metadata-util dump <file>...` | Prints the `read` response of each file, one line per file, in argument order, then exits 0 if all of them were read and 1 if any failed. The `id` of each response is the 0-based position of the file among the arguments. A file that fails still prints an `ok: false` line. On Windows the arguments are read as UTF-16 and converted to UTF-8. |
 
 The version line is matched by the regular expression
 `protocol ([0-9]+)\.([0-9]+)$`. Clients should match it that way and ignore the rest of the line.

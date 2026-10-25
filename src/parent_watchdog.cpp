@@ -8,7 +8,7 @@
 #include <chrono>
 #include <thread>
 
-namespace ddbexif {
+namespace metadatautil {
 
 void startParentWatchdog() {
     const pid_t parent = getppid();
@@ -21,14 +21,14 @@ void startParentWatchdog() {
     }).detach();
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil
 
 #else
 
-namespace ddbexif {
+namespace metadatautil {
 
 void startParentWatchdog() {}
 
-}  // namespace ddbexif
+}  // namespace metadatautil
 
 #endif

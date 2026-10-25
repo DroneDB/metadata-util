@@ -8,7 +8,7 @@
 
 #include "protocol.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -53,4 +53,4 @@ int serve(std::istream& in, std::ostream& out, const MetadataService& service) {
     }
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <mutex>
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -28,7 +28,7 @@ bool initializeExiv2() {
     Exiv2::LogMsg::setLevel(Exiv2::LogMsg::mute);
 
     if (!Exiv2::XmpParser::initialize(lockUnlock, &xmpMutex)) {
-        std::cerr << "ddb-exif: cannot initialize the XMP toolkit\n";
+        std::cerr << "metadata-util: cannot initialize the XMP toolkit\n";
         return false;
     }
 
@@ -37,7 +37,7 @@ bool initializeExiv2() {
         // would not resolve
         Exiv2::XmpProperties::registerNs("http://ns.flir.com/xmp/1.0/", "FLIR");
     } catch (const Exiv2::Error& e) {
-        std::cerr << "ddb-exif: cannot register the FLIR XMP namespace: " << e.what() << '\n';
+        std::cerr << "metadata-util: cannot register the FLIR XMP namespace: " << e.what() << '\n';
         return false;
     }
     return true;
@@ -47,4 +47,4 @@ void shutdownExiv2() {
     Exiv2::XmpParser::terminate();
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

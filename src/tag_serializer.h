@@ -6,7 +6,7 @@
 #include "json_writer.h"
 
 // Turns Exiv2 metadata into the tag objects of PROTOCOL.md.
-namespace ddbexif {
+namespace metadatautil {
 
 enum class TagDetail {
     // k, t, n, s and the component values v
@@ -18,4 +18,4 @@ enum class TagDetail {
 void writeTag(JsonWriter& writer, const Exiv2::Exifdatum& datum, TagDetail detail);
 void writeTag(JsonWriter& writer, const Exiv2::Xmpdatum& datum, TagDetail detail);
 
-}  // namespace ddbexif
+}  // namespace metadatautil

@@ -4,7 +4,7 @@
 #include <string>
 #include <string_view>
 
-namespace ddbexif::utf8 {
+namespace metadatautil::utf8 {
 
 // Whether `text` is well-formed UTF-8 as JSON requires it: no overlong forms, no surrogates,
 // nothing above U+10FFFF. An embedded NUL is valid.
@@ -19,4 +19,4 @@ std::string replaceInvalid(std::string_view text);
 std::string fromWide(std::wstring_view wide);
 #endif
 
-}  // namespace ddbexif::utf8
+}  // namespace metadatautil::utf8

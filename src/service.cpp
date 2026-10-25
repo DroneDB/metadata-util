@@ -8,7 +8,7 @@
 #include "json_writer.h"
 #include "tag_serializer.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -105,4 +105,4 @@ std::string MetadataService::writeImage(const Request& request) const {
     return writer.release();
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

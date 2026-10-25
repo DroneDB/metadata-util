@@ -8,7 +8,7 @@
 
 #include "protocol.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -147,4 +147,4 @@ void writeTag(JsonWriter& writer, const Exiv2::Xmpdatum& datum, TagDetail detail
     writeTagImpl(writer, datum, detail);
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil

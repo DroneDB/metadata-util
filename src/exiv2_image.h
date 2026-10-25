@@ -6,7 +6,7 @@
 #include <string>
 
 // The only place that opens and saves image files through Exiv2.
-namespace ddbexif {
+namespace metadatautil {
 
 // The file could not be opened or read, before Exiv2 looked at its content
 class OpenError : public std::runtime_error {
@@ -31,4 +31,4 @@ void saveImage(Exiv2::Image& image, const std::string& path);
 // Whether `error` says that the file could not be opened, as opposed to being unreadable content
 bool isOpenFailure(const Exiv2::Error& error);
 
-}  // namespace ddbexif
+}  // namespace metadatautil

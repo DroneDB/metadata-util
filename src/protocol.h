@@ -12,7 +12,7 @@
 #include "json_writer.h"
 
 // The wire format of PROTOCOL.md: requests parsed from one line each, responses built as one line.
-namespace ddbexif {
+namespace metadatautil {
 
 namespace limits {
 // A tag whose toString() is longer is sent without its value (trunc)
@@ -71,4 +71,4 @@ void beginResponse(JsonWriter& writer, std::optional<int64_t> id, bool ok);
 // The complete failure response line (without the line feed)
 std::string failureResponse(std::optional<int64_t> id, ErrorCode code, std::string_view message);
 
-}  // namespace ddbexif
+}  // namespace metadatautil

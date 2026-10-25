@@ -4,7 +4,7 @@
 #include <array>
 #include <cstdint>
 
-namespace ddbexif::base64 {
+namespace metadatautil::base64 {
 
 namespace {
 
@@ -85,4 +85,4 @@ bool decode(std::string_view text, std::string& bytes) {
     return true;
 }
 
-}  // namespace ddbexif::base64
+}  // namespace metadatautil::base64

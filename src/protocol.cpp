@@ -6,7 +6,7 @@
 #include "base64.h"
 #include "utf8.h"
 
-namespace ddbexif {
+namespace metadatautil {
 
 namespace {
 
@@ -143,4 +143,4 @@ std::string failureResponse(std::optional<int64_t> id, ErrorCode code, std::stri
     return writer.release();
 }
 
-}  // namespace ddbexif
+}  // namespace metadatautil
